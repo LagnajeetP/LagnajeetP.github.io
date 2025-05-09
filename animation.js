@@ -8,8 +8,8 @@ const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$
 const matrixChars = chars.split("");
 
 const fontSize = 16;
-const columns  = Math.floor(canvas.width / fontSize);
-const drops    = Array(columns).fill(1);
+const columns = Math.floor(canvas.width / fontSize);
+const drops = Array(columns).fill(1);
 
 function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
