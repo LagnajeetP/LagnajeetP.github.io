@@ -42,21 +42,30 @@ window.addEventListener("resize", () => {
   }
 });
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    if (targetId === '#' || targetId === '#home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// Smooth scrolling for all anchor links (navigation and buttons)
+function setupSmoothScrolling() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#' || targetId === '#home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
-    }
+    });
   });
-});
+}
+
+// Wait for DOM to be ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupSmoothScrolling);
+} else {
+  setupSmoothScrolling();
+}
 
 // Update active navigation link on scroll
 function updateActiveNav() {
@@ -81,15 +90,32 @@ function updateActiveNav() {
   });
 }
 
-window.addEventListener('scroll', updateActiveNav);
-window.addEventListener('load', updateActiveNav);
+// Wait for DOM to be ready before setting up scroll listeners
+function setupScrollListeners() {
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav(); // Call once on load
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupScrollListeners);
+} else {
+  setupScrollListeners();
+}
 
 // Handle form submission
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you for your message! (This is a demo form - functionality can be connected to a backend)');
-    this.reset();
-  });
+function setupContactForm() {
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! (This is a demo form - functionality can be connected to a backend)');
+      this.reset();
+    });
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupContactForm);
+} else {
+  setupContactForm();
 }
