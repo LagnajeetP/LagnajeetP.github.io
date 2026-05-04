@@ -2,80 +2,474 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name • Portfolio</title>
-  <link rel="stylesheet" href="styling.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lagnajeet Panigrahi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-  
-  <canvas id="matrix"></canvas>
 
-  
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+  <canvas id="hud-canvas"></canvas>
+  <div id="scanlines"></div>
+
+  <!-- Boot Sequence -->
+  <div id="boot-overlay">
+    <div class="boot-content">
+      <div class="boot-logo">[LP]</div>
+      <div class="boot-lines">
+        <div class="boot-line">INITIALIZING SECURE CONNECTION...</div>
+        <div class="boot-line">LOADING PROFILE: LAGNAJEET PANIGRAHI</div>
+        <div class="boot-line">RUNNING DIAGNOSTICS...</div>
+        <div class="boot-line boot-final">ACCESS GRANTED &#10003;</div>
+      </div>
+      <div class="boot-bar-wrap"><div class="boot-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo"><span class="bracket">[</span>LP<span class="bracket">]</span></a>
+    <ul class="nav-links">
+      <li><a href="#home"       class="nav-link" data-n="01">HOME</a></li>
+      <li><a href="#about"      class="nav-link" data-n="02">ABOUT</a></li>
+      <li><a href="#experience" class="nav-link" data-n="03">EXPERIENCE</a></li>
+      <li><a href="#projects"   class="nav-link" data-n="04">PROJECTS</a></li>
+      <li><a href="#skills"     class="nav-link" data-n="05">SKILLS</a></li>
+      <li><a href="#contact"    class="nav-link" data-n="06">CONTACT</a></li>
     </ul>
+    <a href="assets/resume/Lagnajeet_Panigrahi_Resume_2026_2027.pdf" class="btn btn-sm" target="_blank">RESUME ↗</a>
   </nav>
 
-  
-  <main id="home" class="section">
-    <h1>Lagnajeet Panigrahi</h1>
-    <p>Senior at Shrewsbury High School</p>
-    <a class="btn" href="#about">Learn More</a>
-  </main>
+  <!-- ═══════════════════════════════════════════
+       01 — HERO
+  ════════════════════════════════════════════ -->
+  <section id="home" class="section hero-section">
+    <div class="hero-wrap">
 
+      <div class="hero-status-bar">
+        <span class="pulse-dot"></span>
+        <span class="mono dim">SYSTEM ONLINE</span>
+        <span class="mono dim sep">|</span>
+        <span class="mono cyan">BERKELEY, CA</span>
+        <span class="mono dim sep">|</span>
+        <span class="mono dim">UC BERKELEY EECS</span>
+      </div>
+
+      <!-- Arc Reactor -->
+      <div class="reactor" aria-hidden="true">
+        <div class="reactor-ring r1"></div>
+        <div class="reactor-ring r2"></div>
+        <div class="reactor-ring r3"></div>
+        <div class="reactor-core"></div>
+        <div class="reactor-glow"></div>
+      </div>
+
+      <h1 class="hero-name">LAGNAJEET<br>PANIGRAHI</h1>
+
+      <div class="hero-role">
+        <span class="mono dim">&gt;&nbsp;</span>
+        <span id="typewriter-text"></span>
+        <span class="cursor-blink">_</span>
+      </div>
+
+      <p class="hero-sub mono dim">B.S. EECS &nbsp;·&nbsp; UC BERKELEY &nbsp;·&nbsp; CLASS OF 2028</p>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-val">3+</span>
+          <span class="mono dim stat-lbl">YEARS EXP</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-val">4+</span>
+          <span class="mono dim stat-lbl">PROJECTS</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-val">5+</span>
+          <span class="mono dim stat-lbl">AWARDS</span>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">VIEW PROJECTS</a>
+        <a href="#contact"  class="btn btn-outline">GET IN TOUCH</a>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-bar"></div>
+      <span class="mono dim">SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       02 — ABOUT
+  ════════════════════════════════════════════ -->
   <section id="about" class="section">
-    <h2>About Me</h2>
-    <div class="content">
-      <p>I'm a senior at Shrewsbury High School with a passion for technology and programming.</p>
-      <p>I enjoy working on projects that combine creativity with technical skills.</p>
-      <h3>Skills</h3>
-      <ul class="skills-list">
-        <li>Web Development</li>
-        <li>Programming</li>
-        <li>Problem Solving</li>
-      </ul>
+    <div class="sec-header reveal">
+      <span class="mono dim sec-num">02</span>
+      <h2 class="sec-title">ABOUT</h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="about-grid">
+      <div class="hud-card reveal">
+        <div class="card-tag">SUBJECT PROFILE</div>
+        <p>I'm an EECS student at UC Berkeley building at the intersection of <span class="cyan">machine learning, robotics, and full-stack engineering</span>. Currently an ML Engineer at EnsureCare.ai and a Robotics Researcher at BAIR's Agile Robotics &amp; Perception Lab.</p>
+        <p>I build systems that matter — from AI-powered healthcare platforms serving 940K+ patients to quadrotor dynamics predictors trained on 450K+ data points.</p>
+        <div class="about-links">
+          <a href="https://github.com/LagnajeetP" target="_blank" class="about-link">&#9654; GITHUB</a>
+          <a href="https://linkedin.com/in/lagnajeetp" target="_blank" class="about-link">&#9654; LINKEDIN</a>
+          <a href="mailto:lpanigrahi@berkeley.edu" class="about-link">&#9654; EMAIL</a>
+        </div>
+      </div>
+
+      <div class="hud-card reveal">
+        <div class="card-tag">EDUCATION</div>
+        <div class="edu-school">University of California, Berkeley</div>
+        <div class="edu-degree">B.S. Electrical Engineering &amp; Computer Science</div>
+        <div class="edu-date mono dim">Expected Graduation: Spring 2028</div>
+        <div class="edu-courses-label mono dim">RELEVANT COURSEWORK</div>
+        <div class="tag-row">
+          <span class="tag">Data Structures &amp; Algorithms</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">Efficient Algorithms</span>
+          <span class="tag">Circuits</span>
+          <span class="tag">Signal Processing</span>
+          <span class="tag">Discrete Math</span>
+          <span class="tag">Quant Finance</span>
+          <span class="tag">Optimization</span>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════
+       03 — EXPERIENCE
+  ════════════════════════════════════════════ -->
+  <section id="experience" class="section">
+    <div class="sec-header reveal">
+      <span class="mono dim sec-num">03</span>
+      <h2 class="sec-title">EXPERIENCE</h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="hud-card tl-card">
+          <div class="exp-head">
+            <div>
+              <div class="exp-company">EnsureCare.ai</div>
+              <div class="exp-role">Machine Learning Engineer / Full-Stack Software Engineer</div>
+            </div>
+            <div class="exp-meta">
+              <div class="mono cyan exp-date">APR 2026 – PRESENT</div>
+              <div class="mono dim exp-loc">San Francisco, CA</div>
+            </div>
+          </div>
+          <ul class="bullets">
+            <li>Built high-risk patient no-show prediction system with 100K+ records, reducing missed appointments by <span class="cyan">25%</span></li>
+            <li>Designed risk prioritization system using predictive modeling &amp; REST APIs, improving follow-up efficiency by <span class="cyan">30%+</span></li>
+            <li>Orchestrated ETL pipelines across 100K+ healthcare records using PostgreSQL for model training and live risk scoring</li>
+            <li>Developed full-stack features with React, TypeScript, Node.js, FastAPI — reducing provider review time by <span class="cyan">40%+</span></li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">FastAPI</span>
+            <span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">ML</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="hud-card tl-card">
+          <div class="exp-head">
+            <div>
+              <div class="exp-company">Berkeley Artificial Intelligence Research (BAIR)</div>
+              <div class="exp-role">ML Engineer &amp; Robotics Researcher — Agile Robotics &amp; Perception Lab</div>
+            </div>
+            <div class="exp-meta">
+              <div class="mono cyan exp-date">SEP 2025 – PRESENT</div>
+              <div class="mono dim exp-loc">Berkeley, CA</div>
+            </div>
+          </div>
+          <ul class="bullets">
+            <li>Designed multi-head LSTM predictor for long-horizon quadrotor dynamics using <span class="cyan">450,000+ data points</span></li>
+            <li>Studied world models that learn environmental dynamics for prediction, reasoning, and real-time decision-making</li>
+            <li>Investigated latent-space representations to capture motion and improve generalizable robotic behavior</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">LSTM</span><span class="tag">Quadrotors</span><span class="tag">World Models</span>
+            <span class="tag">PyTorch</span><span class="tag">ROS 2</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="hud-card tl-card">
+          <div class="exp-head">
+            <div>
+              <div class="exp-company">UMass Chan Medical School — Computational Biology</div>
+              <div class="exp-role">ML Engineer &amp; Bioinformatics Researcher</div>
+            </div>
+            <div class="exp-meta">
+              <div class="mono cyan exp-date">MAY – SEP 2024</div>
+              <div class="mono dim exp-loc">Worcester, MA</div>
+            </div>
+          </div>
+          <ul class="bullets">
+            <li>Developed 6 CNNs for binary classification and regression of gene expression, achieving <span class="cyan">70%+ accuracy</span></li>
+            <li>Conducted statistical analysis of genes and DNA sequences; optimized models through data augmentation</li>
+            <li>Integrated generative AI (OpenAI API) into transcription-factor research, reducing data analysis time by <span class="cyan">20%</span></li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">CNNs</span><span class="tag">TensorFlow</span><span class="tag">Bioinformatics</span>
+            <span class="tag">OpenAI API</span><span class="tag">Python</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="hud-card tl-card">
+          <div class="exp-head">
+            <div>
+              <div class="exp-company">Massachusetts State House of Representatives</div>
+              <div class="exp-role">Technology Legislation Intern — Rep. Hannah Kane</div>
+            </div>
+            <div class="exp-meta">
+              <div class="mono cyan exp-date">JUN – AUG 2024</div>
+              <div class="mono dim exp-loc">Worcester, MA</div>
+            </div>
+          </div>
+          <ul class="bullets">
+            <li>Researched and presented <span class="cyan">10+ bills</span> concerning technology ethics, artificial intelligence, and public policy</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">AI Policy</span><span class="tag">Tech Ethics</span><span class="tag">Legislation</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       04 — PROJECTS
+  ════════════════════════════════════════════ -->
   <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="content">
-      <div class="project-card">
-        <h3>Project 1</h3>
-        <p>Description of your first project. This could be a web application, mobile app, or any other project you've worked on.</p>
+    <div class="sec-header reveal">
+      <span class="mono dim sec-num">04</span>
+      <h2 class="sec-title">PROJECTS</h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="hud-card project-card reveal">
+        <div class="project-award">&#127942; 2ND PLACE · CALHACKS 12.0</div>
+        <h3 class="project-name">Claimd</h3>
+        <p class="project-sub">AI-Assisted Disability Claims Platform</p>
+        <ul class="bullets">
+          <li>Reduced SSDI review time from <span class="cyan">7 months → 2 weeks</span> for 940K applicants</li>
+          <li>Serverless dual-agent system on AWS Lambda &amp; SQS — &lt;5s processing, 1000 req/s capacity</li>
+          <li>Multi-agent pipeline with Claude Opus 4.6 adhering to SSA's 5-step legal evaluation framework</li>
+          <li>Transformer-based routing policies for optimal case assignment in hierarchical reviewer workflows</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Claude API</span><span class="tag">AWS Lambda</span><span class="tag">SQS</span>
+          <span class="tag">Transformers</span><span class="tag">K-means</span>
+        </div>
+        <div class="project-date mono dim">OCT 2025 – APR 2026</div>
       </div>
-      <div class="project-card">
-        <h3>Project 2</h3>
-        <p>Description of your second project. Highlight the technologies used and what you learned.</p>
+
+      <div class="hud-card project-card reveal">
+        <div class="project-award">&#127947; A16Z HACKATHON WINNER · $2,000</div>
+        <h3 class="project-name">VeriLaw</h3>
+        <p class="project-sub">Verifiable AI Legal Compliance Platform</p>
+        <ul class="bullets">
+          <li>AI compliance app running LLM document checks inside an EigenCloud Trusted Execution Environment</li>
+          <li>Flask APIs for secure upload, TEE orchestration, and cryptographic proofs in PostgreSQL/Supabase</li>
+          <li>React/TypeScript frontend with Dockerized backend &amp; TEE services for cloud deployment</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">LLMs</span><span class="tag">TEE</span><span class="tag">Flask</span>
+          <span class="tag">React</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span>
+        </div>
+        <div class="project-date mono dim">OCT – NOV 2025</div>
       </div>
-      <div class="project-card">
-        <h3>Project 3</h3>
-        <p>Description of your third project. Showcase your best work here.</p>
+
+      <div class="hud-card project-card reveal">
+        <div class="project-award">&#128300; PRESENTED AT MIT, COLUMBIA &amp; WPI</div>
+        <h3 class="project-name">Brain Tumor CNN</h3>
+        <p class="project-sub">Automated Brain Tumor Classification via Deep Learning</p>
+        <ul class="bullets">
+          <li>CNN in TensorFlow/Keras classifying brain MRI scans for tumor detection with <span class="cyan">90%+ test accuracy</span></li>
+          <li>Image preprocessing and data augmentation to expand the MRI dataset and improve validation accuracy</li>
+          <li>Architecture &amp; hyperparameter tuning reduced training time per epoch by <span class="cyan">~30%</span></li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">CNN</span>
+          <span class="tag">Computer Vision</span><span class="tag">Python</span>
+        </div>
+        <div class="project-date mono dim">AUG 2022 – JUN 2023</div>
       </div>
+
+      <div class="hud-card project-card reveal">
+        <div class="project-award">&#9889; NEUROTECH@BERKELEY</div>
+        <h3 class="project-name">AdaptiveSpikformer</h3>
+        <p class="project-sub">Confidence-Aware Adaptive Computation in Spiking Transformers</p>
+        <ul class="bullets">
+          <li>Improved spiking transformer efficiency using SEENN-I early exit strategy</li>
+          <li>Reduced inference compute by <span class="cyan">29–39%</span> without accuracy loss</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Spiking NNs</span><span class="tag">Transformers</span>
+          <span class="tag">Neuromorphic</span><span class="tag">PyTorch</span>
+        </div>
+        <div class="project-date mono dim">JAN 2026 – PRESENT</div>
+      </div>
+
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════
+       05 — SKILLS
+  ════════════════════════════════════════════ -->
+  <section id="skills" class="section">
+    <div class="sec-header reveal">
+      <span class="mono dim sec-num">05</span>
+      <h2 class="sec-title">SKILLS</h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="hud-card reveal">
+        <div class="card-tag">LANGUAGES</div>
+        <div class="tag-row">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="hud-card reveal">
+        <div class="card-tag">FRAMEWORKS</div>
+        <div class="tag-row">
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MongoDB</span>
+        </div>
+      </div>
+      <div class="hud-card reveal">
+        <div class="card-tag">AI / ML</div>
+        <div class="tag-row">
+          <span class="skill-tag">Transformers</span>
+          <span class="skill-tag">CNNs</span>
+          <span class="skill-tag">LLMs</span>
+          <span class="skill-tag">RAG</span>
+          <span class="skill-tag">Hugging Face</span>
+          <span class="skill-tag">Computer Vision</span>
+          <span class="skill-tag">NLP</span>
+          <span class="skill-tag">Feature Engineering</span>
+        </div>
+      </div>
+      <div class="hud-card reveal">
+        <div class="card-tag">TOOLS &amp; INFRA</div>
+        <div class="tag-row">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">ROS</span>
+          <span class="skill-tag">ROS 2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Awards -->
+    <div class="sec-header reveal" style="margin-top:4rem;">
+      <span class="mono dim sec-num">05B</span>
+      <h2 class="sec-title">AWARDS</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="awards-grid reveal">
+      <div class="award-item"><span class="award-icon">&#127942;</span><span>a16z 10 Squared Hackathon Winner</span></div>
+      <div class="award-item"><span class="award-icon">&#127944;</span><span>2nd Place, CalHacks 12.0 — Promise Track</span></div>
+      <div class="award-item"><span class="award-icon">&#127891;</span><span>Intl. Young Researcher's Conference Invitee — Columbia University</span></div>
+      <div class="award-item"><span class="award-icon">&#128300;</span><span>Massachusetts State Science Fair — 2nd Place</span></div>
+      <div class="award-item"><span class="award-icon">&#9878;</span><span>National Chemistry Olympiad — Qualified</span></div>
+      <div class="award-item"><span class="award-icon">&#129302;</span><span>FIRST Robotics New England District — Runner Up</span></div>
+      <div class="award-item"><span class="award-icon">&#128218;</span><span>Shrewsbury Senior Scholar</span></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       06 — CONTACT
+  ════════════════════════════════════════════ -->
   <section id="contact" class="section">
-    <h2>Contact</h2>
-    <div class="content">
-      <p>Feel free to reach out to me!</p>
-      <div class="contact-info">
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>GitHub: <a href="https://github.com/LagnajeetP" target="_blank">LagnajeetP</a></p>
+    <div class="sec-header reveal">
+      <span class="mono dim sec-num">06</span>
+      <h2 class="sec-title">CONTACT</h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="contact-wrap reveal">
+      <p class="contact-intro">Let's build something extraordinary together.</p>
+      <div class="contact-cards">
+        <a href="mailto:lpanigrahi@berkeley.edu" class="hud-card contact-card">
+          <div class="contact-icon">&#9993;</div>
+          <div>
+            <div class="card-tag">EMAIL</div>
+            <div class="contact-val">lpanigrahi@berkeley.edu</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/lagnajeetp" target="_blank" class="hud-card contact-card">
+          <div class="contact-icon">&#9670;</div>
+          <div>
+            <div class="card-tag">LINKEDIN</div>
+            <div class="contact-val">linkedin.com/in/lagnajeetp</div>
+          </div>
+        </a>
+        <a href="https://github.com/LagnajeetP" target="_blank" class="hud-card contact-card">
+          <div class="contact-icon">&#9654;</div>
+          <div>
+            <div class="card-tag">GITHUB</div>
+            <div class="contact-val">github.com/LagnajeetP</div>
+          </div>
+        </a>
       </div>
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
+      <a href="assets/resume/Lagnajeet_Panigrahi_Resume_2026_2027.pdf" target="_blank" class="btn btn-primary" style="margin-top:3rem;">
+        DOWNLOAD RESUME ↗
+      </a>
     </div>
   </section>
 
-  <script src="animation.js"></script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <span class="mono cyan">[LP]</span>
+      <span class="mono dim">LAGNAJEET PANIGRAHI &nbsp;·&nbsp; BERKELEY, CA</span>
+      <span class="mono dim">2026</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/hud.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
